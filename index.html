@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Text driven 3D Garment generation.">
+  <meta name="keywords" content="WordRobe: Text-Guided Generation of Textured 3D Garments">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WordRobe: Text-Guided Generation of Textured 3D Garments</title>
+
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">WordRobe: Text-Guided Generation of Textured 3D Garments</h1>
+          <h1 class="subtitle has-text-centered"> </h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Anonymous Authors</span>  
+            <!-- <span class="author-block">
+            <span class="author-block">
+            </span> -->
+            <!-- <span class="author-block">
+            </span>
+            <span class="author-block">
+            </span>
+            <span class="author-block">
+            </span>
+            <span class="author-block">
+            </span> -->
+          </div>
+
+          <!-- <div class="is-size-5 publication-authors">
+            <span class="author-block"></span>
+          </div> -->
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Hi-res Video</span>
+                  </a>
+                <a href=""
+                  class="external-link button is-normal is-rounded is-dark">
+                 <span class="icon">
+                     <i class="fab fa-github"></i>
+                 </span>
+                 <span>Code [Coming-Soon]</span>
+                 </a>
+              </span>
+    
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+
+          <p>
+            We propose WordRobe, a novel method for the controllable generation of 3D textured garments from natural language text prompts. Our method can generate high-quality unposed 3D garments with photorealistic textures, in an optimization-free inference step. We achieve this by first learning a latent space of 3D garments using a novel two-stage encoder-decoder framework following a coarse-to-fine training strategy, representing the 3D garments as unsigned distance fields (UDF). We introduce an additional loss function to further disentangle the garment's latent space, enabling better control over latent manipulation for garment editing. The learned latent space is then aligned with the CLIP space by learning a mapping network to allow text-driven generation. We devise a novel weakly-supervised training scheme that eliminates the need for explicit manual text annotations for training the mapping network. Subsequently, we propose a novel, optimization-free text-driven synthesis of texture to allow view-consistent generation, thereby drastically decreasing the generation time as compared to existing optimization-based methods. We also curate a dataset of 50k high-quality 3D garments in different textures and corresponding text prompts.
+          </p>
+        </div>
+                
+                <!-- <div class="item item-steve">
+                  <video poster="" id="steve" autoplay controls muted loop playsinline width="100%">
+                    <source src="./static/videos/SIM_LADY_GREEN.mp4"
+                            type="video/mp4">
+                  </video>
+                </div>
+
+                <div class="item item-steve">
+                  <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+                    <source src="static/videos/SIM_LADY_MULTIPLE.mp4"
+                            type="video/mp4">
+                  </video>
+                </div> -->
+                
+
+
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<section class="section ">
+  <div class="container is-max-desktop">
+    
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Simulations</h2>
+        <div class="content has-text-justified">
+
+          <p>
+            Simulation of generated Textured Garments in Blender.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-centered has-text-centered">
+        <div id="wrapper"> 
+          <video id="home1" poster="" autoplay controls muted loop playsinline width="100%"> 
+            <source type="video/mp4" src="static/videos/SIM_LADY_MULTIPLE.mp4" /> 
+          </video>
+          <video id="home2" poster="" autoplay controls muted loop playsinline width="100%"> 
+            <source type="video/mp4" src="static/videos/SIM_LADY_GREEN.mp4" /> 
+          </video>
+          <div class="clear"></div> 
+          </div>
+        </div>
+  
+  </div>
+</section>
+
+<section class="section">
+
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+      
+    
+
+
+
+
+  </div>
+</section>
+
+</body>
+</html>
