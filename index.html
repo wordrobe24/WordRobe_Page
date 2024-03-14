@@ -72,19 +72,26 @@
             <div class="publication-links">
               
               <span class="link-block">
-                <a href=""
+                <a href="#"
+                  class="external-link button is-normal is-rounded is-dark">
+                 <span class="icon">
+                     <i class="fa fa-file-pdf"></i>
+                 </span>
+                 <span>Paper [Coming Soon]</span>
+                 </a>
+                <a href="#"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-youtube"></i>
                   </span>
-                  <span>Hi-res Video</span>
+                  <span>Summary Video [Coming Soon]</span>
                   </a>
-                <a href=""
+                <a href="#"
                   class="external-link button is-normal is-rounded is-dark">
                  <span class="icon">
                      <i class="fab fa-github"></i>
                  </span>
-                 <span>Code [Coming-Soon]</span>
+                 <span>Code [Coming Soon]</span>
                  </a>
               </span>
     
@@ -96,30 +103,107 @@
   </div>
 </section>
 
+<section class="hero teaser">
+  <div class="hero-body">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <!-- <h2 class="title is-3">Complex Prompts</h2> -->
+        <div class="content has-text-justified">
+
+        </div>
+      </div>
+    </div>
+  </div>
+      <!-- <div class="container is-max-desktop"> -->
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/comp/comp_complex_prompts/comp_complex_prompts-1.webm"
+                    type="video/webm">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/comp/comp_complex_prompts/comp_complex_prompts-2.webm"
+                    type="video/webm">
+          </video> 
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/comp/comp_complex_prompts/comp_complex_prompts-3.webm"
+                    type="video/webm">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/comp/comp_complex_prompts/comp_complex_prompts-4.webm"
+                    type="video/webm">
+          </video>
+        
+      </div>
+    </div>
+  <!-- </div> -->
+</section>
+
+
+
 <section class="section">
+  <div class="content has-text-centered">
+  <!-- <image>
+    <img src="./static/images/teaser.svg" alt="WordRobe" width="80%">
+  </image> -->
+  </div>
   <div class="container is-max-desktop">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Method</h2>
+        <h2 class="title is-3">Method Overview</h2>
         <div class="content has-text-justified">
 
+          <!-- <p>
+            We propose WordRobe, a novel method for the controllable generation of 3D textured garments from natural language text prompts. Our method can generate high-quality unposed 3D garments with photorealistic textures, in an optimization-free inference step. We achieve this by first learning a latent space of 3D garments using a novel two-stage encoder-decoder framework following a coarse-to-fine training strategy, representing the 3D garments as unsigned distance fields (UDF). We introduce an additional loss function to further disentangle the garment's latent space, enabling better control over latent manipulation for garment editing. The learned latent space is then aligned with the CLIP space by learning a mapping network to allow text-driven generation. We devise a novel weakly-supervised training scheme that eliminates the need for explicit manual text annotations for training the mapping network. Subsequently, we propose a novel, optimization-free text-driven synthesis of texture to allow view-consistent generation, thereby drastically decreasing the generation time as compared to existing optimization-based methods.
+          </p> -->
           <p>
-            We propose WordRobe, a novel method for the controllable generation of 3D textured garments from natural language text prompts. Our method can generate high-quality unposed 3D garments with photorealistic textures, in an optimization-free inference step. We achieve this by first learning a latent space of 3D garments using a novel two-stage encoder-decoder framework following a coarse-to-fine training strategy, representing the 3D garments as unsigned distance fields (UDF). We introduce an additional loss function to further disentangle the garment's latent space, enabling better control over latent manipulation for garment editing. The learned latent space is then aligned with the CLIP space by learning a mapping network to allow text-driven generation. We devise a novel weakly-supervised training scheme that eliminates the need for explicit manual text annotations for training the mapping network. Subsequently, we propose a novel, optimization-free text-driven synthesis of texture to allow view-consistent generation, thereby drastically decreasing the generation time as compared to existing optimization-based methods. We also curate a dataset of 50k high-quality 3D garments in different textures and corresponding text prompts.
+            We propose <b>'WordRobe'</b>, a method to generate different types of 3D garments with
+            openings (armholes, necklines etc.) and diverse textures via user-friendly text
+            prompts. To achieve this, we incorporate three novel components in WordRobe — 
+            <b>3D garment latent space (Ω)</b> which encodes unposed 3D garments as latent
+            codes; <b>Mapping Network (MLP<sub>map</sub>)</b> which predicts garment latent
+            code from input text prompt ; and Text-guided texture synthesis
+            to generate high-quality diverse texture maps for the 3D garments 
+            We provide an overview of the proposed method in the figure below at inference time,
+            given an input text prompt, we first obtain its CLIP embedding ψ, which is
+            subsequently passed to MLP<sub>map</sub> to obtain the latent code ϕ ∈ Ω. We further
+            perform two-step latent decoding of ϕ to generate the 3D garment as UDF,
+            and extract the UV parametrized mesh representation for the same. Finally, we
+            perform text-guided texture synthesis in a single feed-forward step by leveraging
+            ControlNet to obtain the textured 3D garment mesh.
           </p>
         </div>
-                
+          <image >
+            <img src="./static/images/pipeline.png" alt="WordRobe" width="100%">
+          </image>
+  
+          
+          <!-- <image >
+            <img src="./static/images/encdec.png" alt="WordRobe" width="100%">
+          </image>
+          <image >
+            <img src="./static/images/datagen.png" alt="WordRobe" width="100%">
+          </image> -->
+
                 <!-- <div class="item item-steve">
                   <video poster="" id="steve" autoplay controls muted loop playsinline width="100%">
-                    <source src="./static/videos/SIM_LADY_GREEN.mp4"
-                            type="video/mp4">
+                    <source src="./static/videos/SIM_LADY_GREEN.webm"
+                            type="video/webm">
                   </video>
                 </div>
 
                 <div class="item item-steve">
                   <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-                    <source src="static/videos/SIM_LADY_MULTIPLE.mp4"
-                            type="video/mp4">
+                    <source src="static/videos/SIM_LADY_MULTIPLE.webm"
+                            type="video/webm">
                   </video>
                 </div> -->
                 
@@ -131,31 +215,525 @@
   </div>
 </section>
 
+
+<section class="hero teaser">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Text-Driven 3D Garment Generation & Editing</h2>
+          <div class="content has-text-justified">
+
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- <div class="container is-max-desktop"> -->
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_text/comp_text-guided-1.webm"
+                    type="video/webm">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_text/comp_text-guided-2.webm"
+                    type="video/webm">
+          </video> 
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_text/comp_text-guided-3.webm"
+                    type="video/webm">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_text/comp_text-guided-2.webm"
+                    type="video/webm">
+          </video>
+        </div>
+
+    </div>
+  <!-- </div> -->
+</section>
+
+
+
+
+
+
+
+<section class="hero teaser">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Composition of 3D Garments</h2>
+          <div class="content has-text-justified">
+
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- <div class="container is-max-desktop"> -->
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_composed/comp_composed-1.webm"
+                    type="video/webm">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_composed/comp_composed-2.webm"
+                    type="video/webm">
+          </video> 
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_composed/comp_composed-3.webm"
+                    type="video/webm">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_composed/comp_composed-2.webm"
+                    type="video/webm">
+          </video>
+        
+      </div>
+    </div>
+  <!-- </div> -->
+</section>
+
+
+<section class="hero teaser">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Text-Driven Latent Editing</h2>
+          <div class="content has-text-justified">
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- <div class="container is-max-desktop"> -->
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_latent/comp_latent-editing-1.webm"
+                    type="video/webm">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_latent/comp_latent-editing-2.webm"
+                    type="video/webm">
+          </video> 
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_latent/comp_latent-editing-3.webm"
+                    type="video/webm">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_latent/comp_latent-editing-2.webm"
+                    type="video/webm">
+          </video>
+        </div>
+
+    </div>
+  <!-- </div> -->
+</section>
+
+
+
+
+<section class="hero teaser">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Sketch Guided Generation</h2>
+          <div class="content has-text-justified">
+
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- <div class="container is-max-desktop"> -->
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_sketch/comp_sketch-guided-1.webm"
+                    type="video/webm">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_sketch/comp_sketch-guided-2.webm"
+                    type="video/webm">
+          </video> 
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_sketch/comp_sketch-guided-3.webm"
+                    type="video/webm">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_sketch/comp_sketch-guided-2.webm"
+                    type="video/webm">
+          </video>
+        </div>
+
+    </div>
+  <!-- </div> -->
+</section>
+
+<section class="hero teaser">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Sketch + Text</h2>
+          <div class="content has-text-justified">
+  
+
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- <div class="container is-max-desktop"> -->
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_sketch-text/comp_sketch-n-text-1.webm"
+                    type="video/webm">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_sketch-text/comp_sketch-n-text-2.webm"
+                    type="video/webm">
+          </video> 
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_sketch-text/comp_sketch-n-text-3.webm"
+                    type="video/webm">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_sketch-text/comp_sketch-n-text-4.webm"
+                    type="video/webm">
+          </video>
+        </div>
+
+    </div>
+  <!-- </div> -->
+</section>
+
+<section class="hero teaser">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">3D Garment Extraction from Images</h2>
+          <div class="content has-text-justified">
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- <div class="container is-max-desktop"> -->
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_image-extract/comp_image-guided-1.webm"
+                    type="video/webm">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_image-extract/comp_image-guided-2.webm"
+                    type="video/webm">
+          </video> 
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_image-extract/comp_image-guided-3.webm"
+                    type="video/webm">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_image-extract/comp_image-guided-4.webm"
+                    type="video/webm">
+          </video>
+        
+      </div>
+      <div class="item item-fullbody">
+        <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+          <source src="static/videos/comp/comp_image-extract/comp_image-guided-5.webm"
+                  type="video/webm">
+        </video>
+      
+    </div>
+    <div class="item item-fullbody">
+      <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+        <source src="static/videos/comp/comp_image-extract/comp_image-guided-6.webm"
+                type="video/webm">
+      </video>
+    
+  </div>
+    </div>
+  <!-- </div> -->
+</section>
+
+<section class="section">
+  <div class="content has-text-centered">
+  <!-- <image>
+    <img src="./static/images/teaser.svg" alt="WordRobe" width="80%">
+  </image> -->
+  </div>
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">3D Garment Latent Space</h2>
+        <div class="content has-text-justified">
+          <p>
+            WordRobe generates high-quality
+unposed 3D garment meshes with photorealistic textures from user-friendly text
+prompts. We achieve this by first learning a latent space of 3D garments using
+a novel two-stage encoder-decoder framework in a coarse-to-fine manner, representing the 3D garments as unsigned distance fields (UDFs). We also introduce
+an additional loss function to further disentangle the latent space, promoting
+better interpolation.
+          </p>
+      <!-- <div class="publication-video"> -->
+        <image >
+          <img src="./static/images/encdec.png" alt="WordRobe" width="100%">
+        </image>
+
+        
+      <!-- </div> -->
+    </div>
+    </div>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="content has-text-centered">
+  <!-- <image>
+    <img src="./static/images/teaser.svg" alt="WordRobe" width="80%">
+  </image> -->
+  </div>
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Mapping CLIP to Garment Latent Space</h2>
+        <div class="content has-text-justified">
+          <p>
+            Once the garment
+            latent space is learned, we train a mapping network to predict garment latent
+            codes from CLIP embeddings. This allows CLIP-guided exploration of the latent
+            space, enabling text-driven 3D garment generation and editing. For training the
+            aforementioned mapping network, we develop a novel weakly-supervised training scheme that eliminates the need for explicit manual text annotations.
+          </p>
+      <!-- <div class="publication-video"> -->
+        <image >
+          <img src="./static/images/datagen.png" alt="WordRobe" width="100%">
+        </image>
+        
+      <!-- </div> -->
+    </div>
+    </div>
+    
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Results</h2>
+          <div class="content has-text-justified">
+  
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- <div class="container is-max-desktop"> -->
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_qualitative/comp_media25.webm"
+                    type="video/webm">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_qualitative/comp_media26.webm"
+                    type="video/webm">
+          </video> 
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_qualitative/comp_media27.webm"
+                    type="video/webm">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_qualitative/comp_media28.webm"
+                    type="video/webm">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_qualitative/comp_media29.webm"
+                    type="video/webm">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_qualitative/comp_media30.webm"
+                    type="video/webm">
+          </video>
+        </div>
+
+    </div>
+  <!-- </div> -->
+</section>
+
+<section class="hero teaser">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Comparison with Text2Tex</h2>
+          <div class="content has-text-justified">
+  
+
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- <div class="container is-max-desktop"> -->
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_texture/comp_media32.webm"
+                    type="video/webm">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_texture/comp_media33.webm"
+                    type="video/webm">
+          </video> 
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_texture/comp_media34.webm"
+                    type="video/webm">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_texture/comp_media33.webm"
+                    type="video/webm">
+          </video>
+        </div>
+
+    </div>
+  <!-- </div> -->
+</section>
+
+
+
+<section class="hero teaser">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Comparison with Text-to-3D Methods</h2>
+          <div class="content has-text-justified">
+  
+
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- <div class="container is-max-desktop"> -->
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_3d/comp_media37.webm"
+                    type="video/webm">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_3d/comp_media38.webm"
+                    type="video/webm">
+          </video> 
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_3d/comp_media39.webm"
+                    type="video/webm">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="static/videos/comp/comp_3d/comp_media40.webm"
+                    type="video/webm">
+          </video>
+        </div>
+
+    </div>
+  <!-- </div> -->
+</section>
+
+
+
+
 <section class="section ">
   <div class="container is-max-desktop">
     
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Simulations</h2>
-        <div class="content has-text-justified">
+        <div class="content has-center-justified">
 
           <p>
-            Simulation of generated Textured Garments in Blender.
+            Hassle-free simulation of generated 3D textured garments in Blender.
           </p>
         </div>
       </div>
     </div>
     <div class="columns is-centered has-text-centered">
         <div id="wrapper"> 
+          <video id="home2" poster="" autoplay controls muted loop playsinline width="100%"> 
+            <source type="video/mp4" src="static/videos/SIM_LADY_GREEN.mp4"   /> 
+          </video>
           <video id="home1" poster="" autoplay controls muted loop playsinline width="100%"> 
             <source type="video/mp4" src="static/videos/SIM_LADY_MULTIPLE.mp4" /> 
           </video>
-          <video id="home2" poster="" autoplay controls muted loop playsinline width="100%"> 
-            <source type="video/mp4" src="static/videos/SIM_LADY_GREEN.mp4" /> 
-          </video>
           <div class="clear"></div> 
-          </div>
-        </div>
+      </div>
+    </div>
   
   </div>
 </section>
